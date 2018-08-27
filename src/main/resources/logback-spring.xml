@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="30 seconds">
-	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework" level="INFO"/>
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d{yyyy-MM-dd HH:mm:ss} - %m%n
@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="httpLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/http.log</file>
+		<file>${LOG_PATH}/${server.port}/http.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/http-%d{yyyyMMdd}.log
@@ -25,32 +25,88 @@
 	</appender>
 	<!-- 系统日志配置 -->
 	<appender name="sysLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/sys.log</file>
+		<file>${LOG_PATH}/${server.port}/sys.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/sys-%d{yyyyMMdd}.log
 			</FileNamePattern>
 			<maxHistory>365</maxHistory>
 		</rollingPolicy>
-		<!-- <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy"> <maxFileSize>100MB</maxFileSize> 
-			</triggeringPolicy> -->
+		<!-- <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy"> <maxFileSize>100MB</maxFileSize>
+            </triggeringPolicy> -->
 		<encoder>
 			<ImmediateFlush>true</ImmediateFlush>
 			<charset>utf-8</charset>
 			<Pattern>[%d{yyyyMMdd HH:mm:ss}] - %m%n</Pattern>
 		</encoder>
 	</appender>
+	<appender name="daoLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/${server.port}/dao.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/dao-%d{yyyyMMdd}.log
+			</FileNamePattern>
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<ImmediateFlush>true</ImmediateFlush>
+			<charset>utf-8</charset>
+			<Pattern>[%d{yyyyMMdd HH:mm:ss}] [%-5level] [%-30logger{0}][%-3L]
+				[SeqId:%X{SeqId}] - %m%n
+			</Pattern>
+		</encoder>
+	</appender>
+	<appender name="serviceLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/${server.port}/service.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/service-%d{yyyyMMdd}.log
+			</FileNamePattern>
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<ImmediateFlush>true</ImmediateFlush>
+			<charset>utf-8</charset>
+			<Pattern>[%d{yyyyMMdd HH:mm:ss}] - %m%n</Pattern>
+		</encoder>
+	</appender>
+	<appender name="controllerLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/${server.port}/controller.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/controller-%d{yyyyMMdd}.log
+			</FileNamePattern>
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<ImmediateFlush>true</ImmediateFlush>
+			<charset>utf-8</charset>
+			<Pattern>[%d{yyyyMMdd HH:mm:ss}]- %m%n</Pattern>
+		</encoder>
+	</appender>
 	<logger name="sysLog" additivity="false" level="info">
 		<!-- <appender-ref ref="stdout" /> -->
-		<appender-ref ref="sysLogAppender" />
+		<appender-ref ref="sysLogAppender"/>
 	</logger>
 	<logger name="httpLog" additivity="false" level="INFO">
 		<appender-ref ref="stdout"/>
 		<appender-ref ref="httpLogAppender"/>
 	</logger>
+	<logger name="daoLog" additivity="false" level="ERROR">
+		<appender-ref ref="stdout"/>
+		<appender-ref ref="daoLogAppender"/>
+	</logger>
+	<logger name="serviceLog" additivity="false" level="ERROR">
+		<appender-ref ref="stdout"/>
+		<appender-ref ref="serviceLogAppender"/>
+	</logger>
+	<logger name="controllerLog" additivity="false" level="INFO">
+		<appender-ref ref="stdout"/>
+		<appender-ref ref="controllerLogAppender"/>
+	</logger>
 	<!-- root 默认日志配置 -->
 	<root level="info">
-		<appender-ref ref="stdout" />
-		<appender-ref ref="sysLogAppender" />
+		<appender-ref ref="stdout"/>
+		<appender-ref ref="sysLogAppender"/>
 	</root>
 </configuration>
