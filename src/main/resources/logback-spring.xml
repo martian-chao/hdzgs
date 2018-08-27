@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="httpLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/${server.port}/http.log</file>
+		<file>${LOG_PATH}/http.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/http-%d{yyyyMMdd}.log
@@ -25,7 +25,7 @@
 	</appender>
 	<!-- 系统日志配置 -->
 	<appender name="sysLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/${server.port}/sys.log</file>
+		<file>${LOG_PATH}/sys.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/sys-%d{yyyyMMdd}.log
@@ -41,7 +41,7 @@
 		</encoder>
 	</appender>
 	<appender name="daoLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/${server.port}/dao.log</file>
+		<file>${LOG_PATH}/dao.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/dao-%d{yyyyMMdd}.log
@@ -57,7 +57,7 @@
 		</encoder>
 	</appender>
 	<appender name="serviceLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/${server.port}/service.log</file>
+		<file>${LOG_PATH}/service.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/service-%d{yyyyMMdd}.log
@@ -71,7 +71,7 @@
 		</encoder>
 	</appender>
 	<appender name="controllerLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/${server.port}/controller.log</file>
+		<file>${LOG_PATH}/controller.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_PATH}/%d{yyyyMMdd}/controller-%d{yyyyMMdd}.log
