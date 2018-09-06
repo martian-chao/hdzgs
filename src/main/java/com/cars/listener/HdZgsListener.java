@@ -48,12 +48,15 @@ public class HdZgsListener {
                 // zcrq，lwdw，sequence 三个字段不在入库表中插入
                 boolean flag = hdZgsService.isExist(hdModel.getZcrq(), hdModel.getLwdw(), hdModel.getSeqnum());
                 if (flag) {//存在更新
+                    //系统的昨天日期
+                    String yesterday = DateUtil.getOperaDate(DateUtil.getShortSystemDate(), -1, "yyyyMMdd");
+
                     //系统的明天日期
                     String tomorrow = DateUtil.getOperaDate(DateUtil.getShortSystemDate(), 1, "yyyyMMdd");
                     int num = hdModel.getZcrq().compareTo(tomorrow);
                     if (num>0){//大于次日更新字段
                         hdZgsService.updateHdHz(hdModel);
-                    }else {//小于等于次日更新字段
+                    }else if (hdModel.getZcrq().compareTo(yesterday)>=0 && num<=0){//小于等于次日并且大于等于昨天更新字段
                         hdZgsService.updateHdHz2(hdModel);
                     }
                 }else {//不存在插入
@@ -67,7 +70,8 @@ public class HdZgsListener {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtil.error("货调数据汇总入库错误");
+            LogUtil.infoHttp("货调数据汇总入库失败");
+            LogUtil.error("货调数据汇总入库失败");
             LogUtil.error(str);
             LogUtil.error(e.getMessage());
         }
@@ -95,7 +99,8 @@ public class HdZgsListener {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtil.error("货调落成日期入库错误");
+            LogUtil.infoHttp("货调落成日期入库失败");
+            LogUtil.error("货调落成日期入库失败");
             LogUtil.error(str);
             LogUtil.error(e.getMessage());
         }

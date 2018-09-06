@@ -123,6 +123,7 @@ public class HdModel {
     private String lkyybz;
     private String auto;
     private String ljdm;
+    private String ffj;//新增字段
 
     public String getZcrq() {
         return zcrq;
@@ -1060,6 +1061,14 @@ public class HdModel {
         this.ljdm = ljdm;
     }
 
+    public String getFfj() {
+        return ffj;
+    }
+
+    public void setFfj(String ffj) {
+        this.ffj = ffj;
+    }
+
     @Override
     public String toString() {
         return "HdModel{" +
@@ -1180,6 +1189,7 @@ public class HdModel {
                 ", lkyybz='" + lkyybz + '\'' +
                 ", auto='" + auto + '\'' +
                 ", ljdm='" + ljdm + '\'' +
+                ", ffj='" + ffj + '\'' +
                 '}';
     }
 }
