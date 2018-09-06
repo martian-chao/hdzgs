@@ -42,7 +42,7 @@ public class HdZgsListener {
             JavaType javaType = JsonUtil.getCollectionType(ArrayList.class, HdModel.class);
             List<HdModel> list = (List<HdModel>) objectMapper.readValue(str, javaType);
             if (list!=null && list.size()>0){
-                LogUtil.infoHttp("路局:"+list.get(0).getLjdm()+",汇总数据入库开始时间："+DateUtil.getSystemTime());
+                LogUtil.infoHttp("路局:"+list.get(0).getFj()+",汇总数据入库开始时间："+DateUtil.getSystemTime());
             }
             for (HdModel hdModel : list) {
                 // zcrq，lwdw，sequence 三个字段不在入库表中插入
@@ -64,7 +64,7 @@ public class HdZgsListener {
                 }
             }
             if (list!=null && list.size()>0){
-                LogUtil.infoHttp("路局:"+list.get(0).getLjdm()+",汇总数据入库结束时间："+DateUtil.getSystemTime());
+                LogUtil.infoHttp("路局:"+list.get(0).getFj()+",汇总数据入库结束时间："+DateUtil.getSystemTime());
             }else {
                 LogUtil.infoHttp("汇总数据为空。");
             }
