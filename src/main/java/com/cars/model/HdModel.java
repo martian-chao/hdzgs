@@ -6,28 +6,28 @@ package com.cars.model;
  * on 2018/8/13.
  */
 public class HdModel {
-    private String zcrq;
-    private String lwdw;
-    private String seqnum;
-    private String jhid;
-    private String pzycfh;
-    private String qqlx;
-    private String qqcs;
-    private String qqds;
-    private String qqcz;
-    private String pzcs;
-    private String pzds;
-    private String pzcz;
-    private String wpyyhz;
-    private String rjhh;
-    private String sprdm;
-    private String ybjh;
-    private String ybjhds;
-    private String dyjdjh;
-    private String dyjdjhds;
-    private String jdzc1;
-    private String jdzcds1;
-    private String jddz1;
+    private String zcrq;//装车日期
+    private String lwdw;//联网单位
+    private String seqnum;//录入顺序额号
+    private String jhid;//车站系统ID
+    private String pzycfh;//批准要车分号（月计划）
+    private String qqlx;//请求类型
+    private String qqcs;//请求车数
+    private String qqds;//请求吨数
+    private String qqcz;//请求车种
+    private String pzcs;//批准车数
+    private String pzds;//批准吨数
+    private String pzcz;//批准车种
+    private String wpyyhz;//未批原因汉字
+    private String rjhh;//日计划号
+    private String sprdm;//审批人汉字
+    private String ybjh;//夜班计划
+    private String ybjhds;//夜班计划吨数
+    private String dyjdjh;//第一阶段计划
+    private String dyjdjhds;//第一阶段吨数
+    private String jdzc1;//0点装车
+    private String jdzcds1;//0点装车吨数
+    private String jddz1;//0点待装
     private String yjcs1;
     private String yjds1;
     private String ope1;
@@ -53,7 +53,7 @@ public class HdModel {
     private String zccz;
     private String ope4;
     private String htddh;
-    private String fj;
+    private String fj;//路局代码,分局
     private String fz;
     private String fzhzzm;
     private String fhdwdm;
@@ -104,13 +104,13 @@ public class HdModel {
     private String yl5;
     private String yl6;
     private String yl7;
-    private String jhtz;
-    private String dzyxm;
-    private String ddh;
-    private String ddtz;
-    private String ddtzhz;
+    private String jhtz;//调整原因
+    private String dzyxm;//到站专用线
+    private String ddh;//订单号
+    private String ddtz;//订单特征
+    private String ddtzhz;//订单特征汉字
     private String qsqqcs;
-    private String hscs;
+    private String hscs;//核实车数
     private String shjycs;
     private String tzyybz;
     private String lkyy1cs;
@@ -119,9 +119,9 @@ public class HdModel {
     private String lkyy4cs;
     private String lkyy5cs;
     private String lkyy6cs;
-    private String lkyy;
-    private String lkyybz;
-    private String auto;
+    private String lkyy;//落空原因
+    private String lkyybz;//落空原因备注
+    private String auto;//自动批车数
     private String ljdm;
     private String ffj;//新增字段
 
