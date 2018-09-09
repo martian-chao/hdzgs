@@ -38,4 +38,15 @@ public class HdZgsHealthDao {
         String sql = "update hd_jkjc set flag=:flag where ljdm=:ljdm";
         return namedParameterJdbcTemplate.update(sql,new BeanPropertySqlParameterSource(hdJkjcModel));
     }
+
+    /**
+     * 入健康检查历史表
+     * @param hdJkjcModel
+     * @return
+     */
+    public int addJkjcLs(HdJkjcModel hdJkjcModel) {
+        String sql = "insert into hd_jkjc_ls(ljdm,ljmc,ljurl,flag,rksj)" +
+                "   values(:ljdm,:ljmc,:ljurl,:flag,:rksj)";
+        return namedParameterJdbcTemplate.update(sql,new BeanPropertySqlParameterSource(hdJkjcModel));
+    }
 }

@@ -6,13 +6,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-
 /**
  * dao层异常拦截记录，用于捕捉Dao层的所有异常信息，并记录日志
  *
- * @author 孔垂云
- * @date 2017-06-13
  */
 
 @Aspect
@@ -32,6 +28,6 @@ public class DaoExceptionAspect {
         for (int i = 0; i < args.length; i++) {
             logger.error("抛异常拦截： 被拦截到的方法参数：" + i + " -- " + args[i]);
         }
-        logger.error("异常信息: " + Arrays.toString(e.getStackTrace()));
+        logger.error("异常信息: " + e.getMessage());
     }
 }

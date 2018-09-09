@@ -9,6 +9,8 @@ public class HdJkjcModel {
     private String ljmc;//路局名称
     private String ljurl;//路局地址
     private String flag;//标识 0异常，1正常
+    private String name;//维护人姓名
+    private String mobile;//维护人电话
 
     public String getLjdm() {
         return ljdm;
@@ -42,6 +44,22 @@ public class HdJkjcModel {
         this.flag = flag;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     @Override
     public String toString() {
         return "HdJkjcModel{" +
@@ -49,6 +67,8 @@ public class HdJkjcModel {
                 ", ljmc='" + ljmc + '\'' +
                 ", ljurl='" + ljurl + '\'' +
                 ", flag='" + flag + '\'' +
+                ", name='" + name + '\'' +
+                ", mobile='" + mobile + '\'' +
                 '}';
     }
 }

@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class TestSend {
     @Autowired
     private RabbitTemplate rabbitTemplate;
-
+    private static  int flag =0;
     /**
      * 货调汇总数据
      */
@@ -39,6 +39,25 @@ public class TestSend {
             rabbitTemplate.convertAndSend(QueueName.HD_LCRQHZ_QUEUE, json.getBytes());
 //        }
     }
+
+    @Test
+    public void testStatic(){
+        for (int i=0;i<5;i++){
+            String ljdm= "P1";
+            if ("P".equals(ljdm)){
+                flag=0;
+                System.out.println("正常:"+flag);
+            }else {
+                flag++;
+                if (flag<4){
+                    System.out.println("异常"+flag);
+                }
+            }
+        }
+
+
+    }
+
 
 
 }
