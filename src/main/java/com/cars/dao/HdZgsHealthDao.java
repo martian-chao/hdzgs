@@ -49,4 +49,12 @@ public class HdZgsHealthDao {
                 "   values(:ljdm,:ljmc,:ljurl,:flag,:name,:mobile,sysdate)";
         return namedParameterJdbcTemplate.update(sql,new BeanPropertySqlParameterSource(hdJkjcModel));
     }
+    /**
+     * 获取服务时间
+     * @return
+     */
+    public String getDete() {
+        String sql = "select to_char(sysdate,'yyyy-MM-dd hh24:mi:ss') sj from dual";
+        return jdbcTemplate.queryForObject(sql,String.class);
+    }
 }

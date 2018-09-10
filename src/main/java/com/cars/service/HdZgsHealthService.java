@@ -106,5 +106,12 @@ public class HdZgsHealthService {
             }
         }
     }
+    /**
+     * 获取服务时间
+     * @return
+     */
+    public String getDete() {
+        return hdZgsHealthDao.getDete();
+    }
 
 }

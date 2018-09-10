@@ -1,5 +1,6 @@
 package com.cars.config.bean;
 
+import com.cars.config.aop.ControllerAspect;
 import com.cars.config.aop.DaoExceptionAspect;
 import com.cars.config.aop.ServiceExceptionAspect;
 import org.springframework.context.annotation.Bean;
@@ -29,5 +30,13 @@ public class HdzgsConfig {
         return new DaoExceptionAspect();
     }
 
+    /**
+     * 拦截controller
+     * @return
+     */
+    @Bean
+    public ControllerAspect controllerAspect(){
+        return new ControllerAspect();
+    }
 
 }
