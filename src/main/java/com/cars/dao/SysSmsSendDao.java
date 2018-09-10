@@ -25,8 +25,8 @@ public class SysSmsSendDao {
      * @return
      */
     public  int addSysSmsSend(SysSmsSend sysSmsSend) {
-        String sql = "insert into hd_sm_send (id,send_name,send_mobile,send_ljdm,send_ljmc,send_date,send_content,send_status)" +
-                "   values(seq_hd_sm_send.nextval,:sendName,:sendMobile,:send_ljdm,:send_ljmc,sysdate,:sendContent,:sendStatus)";
+        String sql = "insert into hd_sms_send (id,send_name,send_mobile,send_ljdm,send_ljmc,send_date,send_content,send_status)" +
+                "   values(seq_hd_sms_send.nextval,:sendName,:sendMobile,:sendLjdm,:sendLjmc,sysdate,:sendContent,:sendStatus)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rc = namedParameterJdbcTemplate.update(sql, new BeanPropertySqlParameterSource(sysSmsSend), keyHolder, new String[] { "id" });
         if (rc > 0) {
@@ -40,7 +40,7 @@ public class SysSmsSendDao {
      * 更新状态
      */
     public int updateStatus(Integer id) {
-        String sql = "update hd_sm_send set send_status =1 where id=?";
+        String sql = "update hd_sms_send set send_status =1 where id=?";
         return jdbcTemplate.update(sql,id);
     }
 }

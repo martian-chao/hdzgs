@@ -25,7 +25,7 @@ public class HdZgsHealthDao {
      * @return
      */
     public List<HdJkjcModel> listLjJkjc() {
-        String sql = "select ljdm,ljmc,ljurl,flag from hd_jkjc where 1=1";
+        String sql = "select ljdm,ljmc,ljurl,flag,name,mobile from hd_jkjc where 1=1";
         return jdbcTemplate.query(sql,new BeanPropertyRowMapper(HdJkjcModel.class));
     }
 
@@ -45,8 +45,8 @@ public class HdZgsHealthDao {
      * @return
      */
     public int addJkjcLs(HdJkjcModel hdJkjcModel) {
-        String sql = "insert into hd_jkjc_ls(ljdm,ljmc,ljurl,flag,rksj)" +
-                "   values(:ljdm,:ljmc,:ljurl,:flag,:rksj)";
+        String sql = "insert into hd_jkjc_ls(ljdm,ljmc,ljurl,flag,name,mobile,rksj)" +
+                "   values(:ljdm,:ljmc,:ljurl,:flag,:name,:mobile,sysdate)";
         return namedParameterJdbcTemplate.update(sql,new BeanPropertySqlParameterSource(hdJkjcModel));
     }
 }

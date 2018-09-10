@@ -120,7 +120,7 @@ public class HdZgsDao {
      * @return
      */
     public int saveHdLcrq(HdLcrqModel hdLcrqModel) {
-        String sql = "insert into z_zcrbjh(ljdm,lcrq) values(:ljdm,:lcrq)";
+        String sql = "insert into hd_lcrq(ljdm,lcrq) values(:ljdm,:lcrq)";
         return namedParameterJdbcTemplate.update(sql, new BeanPropertySqlParameterSource(hdLcrqModel));
     }
 }
